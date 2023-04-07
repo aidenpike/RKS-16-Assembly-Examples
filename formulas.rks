@@ -1,0 +1,54 @@
+;Area of a Square
+#define dimensionOne 10
+#define dimensionTwo 10
+
+ldi @a $dimensionOne
+ldi @b $dimensionTwo
+
+mul @a @b
+poke @a 0xFFFE
+;Newline
+ldi @a 10
+poke @a 0xFFFF
+
+;Area of a Triangle
+ldi @a $dimensionOne
+ldi @b $dimensionTwo
+
+mul @a @b
+ldi @b 2
+div @a @b
+
+poke @a 0xFFFE
+;Newline
+ldi @a 10
+poke @a 0xFFFF
+
+;Area of a Trapezoid
+#define dimensionThree 10
+
+ldi @a $dimensionOne
+ldi @b $dimensionTwo
+
+add @a @b
+ldi @b 2
+div @a @b
+ldi @b $dimensionThree
+mul @a @b
+
+poke @a 0xFFFE
+;Newline
+ldi @a 10
+poke @a 0xFFFF
+
+;Area of a Circle (Should be ~314.16, floating point not supported) 
+ldi @a $dimensionOne
+ldi @b 3  
+
+mul @a @a
+mul @a @b
+
+poke @a 0xFFFE
+;Newline
+ldi @a 10
+poke @a 0xFFFF
