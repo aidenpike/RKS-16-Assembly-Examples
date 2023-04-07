@@ -1,0 +1,22 @@
+ldi @a 10
+ldi @b 9
+
+.ifA
+ldi @a 61
+poke @a 0xFFFF
+ldi @a 10
+poke @a 0xFFFF
+hlt
+
+.ifB
+ldi @a 62
+poke @a 0xFFFF
+ldi @a 10
+poke @a 0xFFFF
+hlt
+
+;if a > b 
+cmp @a @b
+
+jn ifB
+jmp ifA
